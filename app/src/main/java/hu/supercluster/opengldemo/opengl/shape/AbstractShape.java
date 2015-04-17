@@ -10,13 +10,18 @@ import javax.microedition.khronos.opengles.GL10;
 public abstract class AbstractShape implements Shape {
     protected FloatBuffer vertexBuffer;
     protected ShortBuffer indexBuffer;
+    protected FloatBuffer colorBuffer;
+
+    protected void initVertexBuffer(float[] vertices) {
+        vertexBuffer = AllocationHelper.allocateFloatBuffer(vertices);
+    }
 
     protected void initIndexBuffer(short[] connectionIndices) {
         indexBuffer = AllocationHelper.allocateShortBuffer(connectionIndices);
     }
 
-    protected void initVertexBuffer(float[] vertices) {
-        vertexBuffer = AllocationHelper.allocateFloatBuffer(vertices);
+    protected void initColorBuffer(float[] colors) {
+        colorBuffer = AllocationHelper.allocateFloatBuffer(colors);
     }
 
     public final void draw(GL10 gl) {
@@ -29,13 +34,17 @@ public abstract class AbstractShape implements Shape {
         GlHelper.setWinding(gl);
         GlHelper.enableFaceCulling(gl);
         GlHelper.enableVertexBuffer(gl);
+        if (colorBuffer != null) {
+            GlHelper.enableColorBuffer(gl);
+        }
     }
 
     protected abstract void doDraw(GL10 gl);
 
     private void onPostDraw(GL10 gl) {
-        GlHelper.disableVertexBuffer(gl);
         GlHelper.disableFaceCulling(gl);
+        GlHelper.disableVertexBuffer(gl);
+        GlHelper.disableColorBuffer(gl);
     }
     
     private static class AllocationHelper {
@@ -82,6 +91,14 @@ public abstract class AbstractShape implements Shape {
 
         static void disableVertexBuffer(GL10 gl) {
             gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+        }
+
+        public static void enableColorBuffer(GL10 gl) {
+            gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+        }
+
+        public static void disableColorBuffer(GL10 gl) {
+            gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
         }
     }
 }
