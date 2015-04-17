@@ -1,7 +1,5 @@
 package hu.supercluster.opengldemo.opengl.mesh;
 
-import javax.microedition.khronos.opengles.GL10;
-
 public class Square extends AbstractMesh {
     public Square() {
         float[] vertices = {
@@ -15,11 +13,5 @@ public class Square extends AbstractMesh {
 
         setVertices(vertices);
         setIndices(connectionIndices);
-    }
-
-    @Override
-    protected void doDraw(GL10 gl) {
-        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
-        gl.glDrawElements(GL10.GL_TRIANGLES, nbIndices, GL10.GL_UNSIGNED_SHORT, indexBuffer);
     }
 }

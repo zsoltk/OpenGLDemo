@@ -67,7 +67,10 @@ public abstract class AbstractMesh implements Mesh {
         gl.glRotatef(rz, 0, 0, 1);
     }
 
-    protected abstract void doDraw(GL10 gl);
+    protected void doDraw(GL10 gl) {
+        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
+        gl.glDrawElements(GL10.GL_TRIANGLES, nbIndices, GL10.GL_UNSIGNED_SHORT, indexBuffer);
+    }
 
     private void onPostDraw(GL10 gl) {
         GlHelper.disableFaceCulling(gl);
@@ -99,7 +102,7 @@ public abstract class AbstractMesh implements Mesh {
         }
     }
 
-    private static class GlHelper {
+    protected static class GlHelper {
         static void setWinding(GL10 gl) {
             gl.glFrontFace(GL10.GL_CCW);
         }
