@@ -8,6 +8,8 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
+import hu.supercluster.opengldemo.opengl.renderer.OpenGlRenderer;
+
 
 @EActivity(R.layout.activity_main)
 @Fullscreen

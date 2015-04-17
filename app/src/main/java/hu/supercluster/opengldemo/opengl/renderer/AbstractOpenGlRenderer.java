@@ -1,4 +1,4 @@
-package hu.supercluster.opengldemo;
+package hu.supercluster.opengldemo.opengl.renderer;
 
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
@@ -6,7 +6,7 @@ import android.opengl.GLU;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class OpenGlRenderer implements GLSurfaceView.Renderer {
+public class AbstractOpenGlRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glClearColor(0, 0, 0, 0.5f);
