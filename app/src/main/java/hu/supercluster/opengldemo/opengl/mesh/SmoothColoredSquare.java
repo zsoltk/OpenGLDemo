@@ -1,4 +1,4 @@
-package hu.supercluster.opengldemo.opengl.shape;
+package hu.supercluster.opengldemo.opengl.mesh;
 
 import javax.microedition.khronos.opengles.GL10;
 

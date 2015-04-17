@@ -1,4 +1,4 @@
-package hu.supercluster.opengldemo.opengl.shape;
+package hu.supercluster.opengldemo.opengl.mesh;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -7,7 +7,7 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public abstract class AbstractShape implements Shape {
+public abstract class AbstractMesh implements Mesh {
     protected FloatBuffer vertexBuffer;
     protected ShortBuffer indexBuffer;
     protected FloatBuffer colorBuffer;

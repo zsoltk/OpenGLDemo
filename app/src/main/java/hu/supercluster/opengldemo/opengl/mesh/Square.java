@@ -1,8 +1,8 @@
-package hu.supercluster.opengldemo.opengl.shape;
+package hu.supercluster.opengldemo.opengl.mesh;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class Square extends AbstractShape {
+public class Square extends AbstractMesh {
     private float vertices[] = {
            -1.0f,  1.0f, 0.0f,  // 0, Top Left
            -1.0f, -1.0f, 0.0f,  // 1, Bottom Left

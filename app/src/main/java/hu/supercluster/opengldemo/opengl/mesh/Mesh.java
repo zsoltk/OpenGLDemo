@@ -1,7 +1,7 @@
-package hu.supercluster.opengldemo.opengl.shape;
+package hu.supercluster.opengldemo.opengl.mesh;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public interface Shape {
+public interface Mesh {
     void draw(GL10 gl);
 }

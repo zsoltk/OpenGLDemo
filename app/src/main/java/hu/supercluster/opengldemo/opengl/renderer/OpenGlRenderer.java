@@ -2,11 +2,11 @@ package hu.supercluster.opengldemo.opengl.renderer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import hu.supercluster.opengldemo.opengl.shape.Shape;
-import hu.supercluster.opengldemo.opengl.shape.SmoothColoredSquare;
+import hu.supercluster.opengldemo.opengl.mesh.Mesh;
+import hu.supercluster.opengldemo.opengl.mesh.SmoothColoredSquare;
 
 public class OpenGlRenderer extends AbstractOpenGlRenderer {
-    private Shape square;
+    private Mesh square;
     private float angle;
 
     public OpenGlRenderer() {
