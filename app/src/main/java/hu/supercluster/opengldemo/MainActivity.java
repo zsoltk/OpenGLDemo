@@ -1,22 +1,22 @@
 package hu.supercluster.opengldemo;
 
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.app.Activity;
+import android.opengl.GLSurfaceView;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.OptionsItem;
-import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.Fullscreen;
+import org.androidannotations.annotations.ViewById;
 
 
 @EActivity(R.layout.activity_main)
-@OptionsMenu(R.menu.menu_main)
-public class MainActivity extends ActionBarActivity {
+@Fullscreen
+public class MainActivity extends Activity {
+    @ViewById
+    GLSurfaceView glSurfaceView;
 
-    @OptionsItem(R.id.action_settings)
-    void settings() {
-        Toast.makeText(this, android.R.string.ok, Toast.LENGTH_SHORT).show();
+    @AfterViews
+    void init() {
+        glSurfaceView.setRenderer(new OpenGlRenderer());
     }
 }
