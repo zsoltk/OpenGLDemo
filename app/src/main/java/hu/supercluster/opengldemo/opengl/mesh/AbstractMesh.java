@@ -11,17 +11,23 @@ public abstract class AbstractMesh implements Mesh {
     protected FloatBuffer vertexBuffer;
     protected ShortBuffer indexBuffer;
     protected FloatBuffer colorBuffer;
+    protected int nbVertices;
+    protected int nbIndices;
+    protected int nbColors;
 
     protected void setVertices(float[] vertices) {
         vertexBuffer = AllocationHelper.allocateFloatBuffer(vertices);
+        nbVertices = vertices.length;
     }
 
-    protected void setIndices(short[] connectionIndices) {
-        indexBuffer = AllocationHelper.allocateShortBuffer(connectionIndices);
+    protected void setIndices(short[] indices) {
+        indexBuffer = AllocationHelper.allocateShortBuffer(indices);
+        nbIndices = indices.length;
     }
 
     protected void setColors(float[] colors) {
         colorBuffer = AllocationHelper.allocateFloatBuffer(colors);
+        nbColors = colors.length;
     }
 
     public final void draw(GL10 gl) {

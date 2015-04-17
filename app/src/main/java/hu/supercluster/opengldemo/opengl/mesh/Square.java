@@ -3,9 +3,6 @@ package hu.supercluster.opengldemo.opengl.mesh;
 import javax.microedition.khronos.opengles.GL10;
 
 public class Square extends AbstractMesh {
-
-    private short[] connectionIndices = { 0, 1, 2, 0, 2, 3 };
-
     public Square() {
         float[] vertices = {
                 -1.0f,  1.0f,  0.0f,  // 0, Top Left
@@ -14,6 +11,8 @@ public class Square extends AbstractMesh {
                  1.0f,  1.0f,  0.0f,  // 3, Top Right
         };
 
+        short[] connectionIndices = {0, 1, 2, 0, 2, 3};
+
         setVertices(vertices);
         setIndices(connectionIndices);
     }
@@ -21,6 +20,6 @@ public class Square extends AbstractMesh {
     @Override
     protected void doDraw(GL10 gl) {
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
-        gl.glDrawElements(GL10.GL_TRIANGLES, connectionIndices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
+        gl.glDrawElements(GL10.GL_TRIANGLES, nbIndices, GL10.GL_UNSIGNED_SHORT, indexBuffer);
     }
 }
