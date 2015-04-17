@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.gradle
+*~
+*.iml
+**/build
+generateJsonRestModel/gen/*
+local.properties
+**/crashlytics-build.properties
+**/com_crashlytics_export_strings.xml
+*.jks
+keystore.properties
