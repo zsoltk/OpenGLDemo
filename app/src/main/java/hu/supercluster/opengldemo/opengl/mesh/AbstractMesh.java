@@ -12,15 +12,15 @@ public abstract class AbstractMesh implements Mesh {
     protected ShortBuffer indexBuffer;
     protected FloatBuffer colorBuffer;
 
-    protected void initVertexBuffer(float[] vertices) {
+    protected void setVertices(float[] vertices) {
         vertexBuffer = AllocationHelper.allocateFloatBuffer(vertices);
     }
 
-    protected void initIndexBuffer(short[] connectionIndices) {
+    protected void setIndices(short[] connectionIndices) {
         indexBuffer = AllocationHelper.allocateShortBuffer(connectionIndices);
     }
 
-    protected void initColorBuffer(float[] colors) {
+    protected void setColors(float[] colors) {
         colorBuffer = AllocationHelper.allocateFloatBuffer(colors);
     }
 

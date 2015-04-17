@@ -13,8 +13,8 @@ public class Square extends AbstractMesh {
     private short[] connectionIndices = { 0, 1, 2, 0, 2, 3 };
 
     public Square() {
-        initVertexBuffer(vertices);
-        initIndexBuffer(connectionIndices);
+        setVertices(vertices);
+        setIndices(connectionIndices);
     }
 
     @Override

@@ -12,7 +12,7 @@ public class SmoothColoredSquare extends Square {
 
     public SmoothColoredSquare() {
         super();
-        initColorBuffer(colors);
+        setColors(colors);
     }
 
     @Override
