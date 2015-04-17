@@ -15,6 +15,16 @@ public abstract class AbstractMesh implements Mesh {
     protected int nbIndices;
     protected int nbColors;
 
+    // Translation params
+    public float x = 0;
+    public float y = 0;
+    public float z = 0;
+
+    // Rotate params
+    public float rx = 0;
+    public float ry = 0;
+    public float rz = 0;
+
     protected void setVertices(float[] vertices) {
         vertexBuffer = AllocationHelper.allocateFloatBuffer(vertices);
         nbVertices = vertices.length;
@@ -40,9 +50,21 @@ public abstract class AbstractMesh implements Mesh {
         GlHelper.setWinding(gl);
         GlHelper.enableFaceCulling(gl);
         GlHelper.enableVertexBuffer(gl);
+        translate(gl);
+        rotate(gl);
         if (colorBuffer != null) {
             GlHelper.enableColorBuffer(gl);
         }
+    }
+
+    protected void translate(GL10 gl) {
+        gl.glTranslatef(x, y, z);
+    }
+
+    private void rotate(GL10 gl) {
+        gl.glRotatef(rx, 1, 0, 0);
+        gl.glRotatef(ry, 0, 1, 0);
+        gl.glRotatef(rz, 0, 0, 1);
     }
 
     protected abstract void doDraw(GL10 gl);
