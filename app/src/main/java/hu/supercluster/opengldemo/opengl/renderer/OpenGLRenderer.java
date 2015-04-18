@@ -7,13 +7,13 @@ import hu.supercluster.opengldemo.opengl.mesh.Mesh;
 import hu.supercluster.opengldemo.opengl.mesh.SmoothColoredCube;
 import hu.supercluster.opengldemo.opengl.mesh.SmoothColoredSquare;
 
-public class OpenGlRenderer extends AbstractOpenGlRenderer {
+public class OpenGLRenderer extends AbstractOpenGLRenderer {
     private Mesh square;
     private AbstractMesh cube;
     private float angle;
     private int demo;
 
-    public OpenGlRenderer() {
+    public OpenGLRenderer() {
         square = new SmoothColoredSquare();
         cube = new SmoothColoredCube(3, 3, 3);
         angle = 0f;
