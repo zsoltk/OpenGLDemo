@@ -76,6 +76,7 @@ public class OpenGLRenderer extends AbstractOpenGLRenderer {
         gl.glTranslatef(0, 0, -20);
         cube.rx = angle;
         cube.ry = angle;
+        cube.rz = angle / 20;
         cube.draw(gl);
 
         gl.glScalef(0.5f, 0.5f, 0.5f);
