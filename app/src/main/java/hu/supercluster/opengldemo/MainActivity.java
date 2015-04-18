@@ -2,6 +2,8 @@ package hu.supercluster.opengldemo;
 
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
+import android.view.MotionEvent;
+import android.view.View;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -19,6 +21,14 @@ public class MainActivity extends Activity {
 
     @AfterViews
     void init() {
-        glSurfaceView.setRenderer(new OpenGlRenderer());
+        final OpenGlRenderer renderer = new OpenGlRenderer();
+
+        glSurfaceView.setRenderer(renderer);
+        glSurfaceView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                renderer.nextDemo();
+            }
+        });
     }
 }
